@@ -260,13 +260,12 @@ function parseSingle(buf, allBundlesSet, bundleAssets, assetToBundle) {
   }
 }
 
-function parse(mainBuf, smallBuf) {
+function parse(mainBuf) {
   const allBundlesSet = new Set();
   const bundleAssets  = {};   // hash32 → Set of asset names
   const assetToBundle = {};   // name → hash32
 
   parseSingle(mainBuf, allBundlesSet, bundleAssets, assetToBundle);
-  if (smallBuf) parseSingle(smallBuf, allBundlesSet, bundleAssets, assetToBundle);
 
   // Convert Sets to sorted arrays
   const bundles = {};
